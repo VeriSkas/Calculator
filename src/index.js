@@ -26,8 +26,8 @@ let state = {
 };
 
 scren.innerText = 0;
-console.log(            'sax'          );
-function eventHandler() {console.log('tets');
+
+function eventHandler() {
   btnsArr.forEach(item => {
     const btn = item;
 
@@ -125,6 +125,7 @@ function innerTextHandler(place) {
   }
   scren.innerText = state[ place ] || 0;
 }
+console.log(      'sc ыяс ');
 
 function answerCalculateHandler() {
   const {firstOperand, secondOperand, operator} = state;
