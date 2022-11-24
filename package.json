@@ -7,13 +7,12 @@
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "precommit": "lint-staged",
-    "eslint": "node_modules/.bin/eslint src/",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run prepare && npm run precommit"
     }
   },
   "lint-staged": {
