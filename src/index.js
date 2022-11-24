@@ -129,7 +129,7 @@ function onChangeState(value, changedPlace) {
     : null;
   innerTextHandler(changedPlace);
 }
-console.log("sdxc");
+
 function innerTextHandler(place) {
   if (place === stateKeys.memoryTurnOn) {
     state[place]
@@ -142,7 +142,6 @@ function innerTextHandler(place) {
   }
   scren.innerText = state[place] || 0;
 }
-console.log("scazc ");
 
 function answerCalculateHandler() {
   const { firstOperand, secondOperand, operator } = state;
