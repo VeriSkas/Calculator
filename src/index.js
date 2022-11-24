@@ -26,8 +26,8 @@ let state = {
 };
 
 scren.innerText = 0;
-console.log('sax');
-function eventHandler() {
+console.log(            'sax'          );
+function eventHandler() {console.log('tets');
   btnsArr.forEach(item => {
     const btn = item;
 

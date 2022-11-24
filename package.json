@@ -10,6 +10,13 @@
     "precommit": "lint-staged",
     "eslint": "node_modules/.bin/eslint src/"
   },
+  "lint-staged": {
+    "src/**/*.{js, jsx,json,css}": [
+      "node_modules/.bin/eslint --max-warnings=0",
+      "prettier --write",
+      "git add"
+    ]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -30,12 +37,5 @@
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
     "prettier": "^2.8.0"
-  },
-  "lint-staged": {
-    "*.{js, jsx}": [
-      "node_modules/.bin/eslint --max-warnings=0",
-      "prettier --write",
-      "git add"
-    ]
   }
 }
