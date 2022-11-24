@@ -24,10 +24,9 @@ let state = {
   screenLength: 25,
   roundingValue: 4,
 };
-const a = [];
 
 scren.innerText = 0;
-
+console.log('sax');
 function eventHandler() {
   btnsArr.forEach(item => {
     const btn = item;
@@ -147,7 +146,7 @@ function answerCalculateHandler() {
       state.operator = '';
       break;
     case btnsValue.divide:
-      if (secondOperand === btnsValue.zero) { createErrorNotificationHandler(ERROR_MESSAGES.divideByZero) };
+      if (secondOperand === btnsValue.zero) { createErrorNotificationHandler(ERROR_MESSAGES.divideByZero) }
 
       secondOperand !== btnsValue.zero
         ? state.firstOperand = +firstOperand / +secondOperand
