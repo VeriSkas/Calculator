@@ -125,7 +125,7 @@ function innerTextHandler(place) {
   }
   scren.innerText = state[ place ] || 0;
 }
-console.log(      'sc ыяс ');
+console.log(       "dfvg");
 
 function answerCalculateHandler() {
   const {firstOperand, secondOperand, operator} = state;

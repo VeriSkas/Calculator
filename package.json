@@ -7,9 +7,9 @@
     "dev": "webpack --mode development",
     "prod": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "lint": "eslint --debug src/",
-    "lint:write": "eslint --debug src/ --fix",
-    "prettier": "prettier --write src/**/*.js"
+    "precommit": "lint-staged",
+    "eslint": "node_modules/.bin/eslint src/",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
@@ -17,7 +17,11 @@
     }
   },
   "lint-staged": {
-    "*.(js|jsx)": ["npm run lint:write", "git add"]
+    "*.{js, jsx}": [
+      "node_modules/.bin/eslint --max-warnings=0",
+      "prettier --write",
+      "git add"
+    ]
   },
   "author": "",
   "license": "ISC",
