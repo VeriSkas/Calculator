@@ -10,14 +10,10 @@
     "prepare": "husky install",
     "precommit": "lint-staged"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run prepare && npm run precommit"
-    }
-  },
   "lint-staged": {
     "*.{js, jsx}": [
       "node_modules/.bin/eslint --max-warnings=0",
+      "eslint --debug src/ --fix",
       "prettier --write",
       "git add"
     ]

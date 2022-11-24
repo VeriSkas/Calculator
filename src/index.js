@@ -129,7 +129,7 @@ function onChangeState(value, changedPlace) {
     : null;
   innerTextHandler(changedPlace);
 }
-
+console.log("sdxc");
 function innerTextHandler(place) {
   if (place === stateKeys.memoryTurnOn) {
     state[place]
