@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 $calcWidth: 600px;
@@ -16,6 +17,10 @@ $btnWidth: $calcWidth / 7;
   right: 0;
   background: linear-gradient(270deg, #f0613c 0%, #f2a23b 100%);
 
+  &.darkTheme {
+    background: linear-gradient(270deg, #0c0503 0%, #2a1c0a 100%);
+  }
+
   > div {
     margin-top: 30px;
   }
@@ -23,10 +28,43 @@ $btnWidth: $calcWidth / 7;
   &__header {
     &_title {
       text-align: center;
-      font-family: 'Roboto Condensed', sans-serif;
       font-size: calc(30px + 15 * (100vw / 1280));
       text-shadow: 2px 2px 2px rgba($color: #000000, $alpha: .5);
       color: #f9d6b8;
+    }
+
+    &_switcher {
+      margin-top: 10px;
+      text-align: center;
+
+      .switcher {
+        display: inline-block;
+        cursor: pointer;
+        position: relative;
+
+        .hide {
+          display: none;
+        }
+
+        &-tooltip {
+          display: none;
+          position: absolute;
+          background: #757677d9;
+          top: 30px;
+          left: 15px;
+          padding: 5px;
+          border-radius: 5px;
+          color: #fff;
+          font-size: calc(10px + 4 * (100vw / 1280));
+          box-shadow: 2px 1px 2px rgba($color: #000000, $alpha: .5);
+        }
+
+        &:hover {
+          .switcher-tooltip {
+            display: inline-block;
+          }
+        }
+      }
     }
   }
 
@@ -45,6 +83,10 @@ $btnWidth: $calcWidth / 7;
       background: #48494a;
       border-radius: 7px;
       box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: .5);
+
+      &.darkTheme {
+        background: #2c2c2c;
+      }
 
       &_logo {
         display: flex;
@@ -69,7 +111,6 @@ $btnWidth: $calcWidth / 7;
           right: 10px;
           top: calc(0px + 5 * (100vw / 1280));
           color: #fff;
-          font-family: 'Roboto Condensed', sans-serif;
           font-size: calc(10px + 6 * (100vw / 1280));
         }
 
@@ -80,7 +121,6 @@ $btnWidth: $calcWidth / 7;
           padding: 0 10px;
           color: #fff;
           font-weight: 400;
-          font-family: 'Roboto Condensed', sans-serif;
           font-size: calc(24px + 16 * (100vw / 1280));
         }
       }
@@ -122,7 +162,6 @@ $btnWidth: $calcWidth / 7;
   border: 1px solid #48494a;
   color: #fff;
   font-size: calc(15px + 5 * (100vw / 1280));
-  font-family: 'Roboto Condensed', sans-serif;
   background: #5a5b5c;
   opacity: .9;
   cursor: pointer;
@@ -138,6 +177,10 @@ $btnWidth: $calcWidth / 7;
   &.bigHeight {
     height: $btnWidth * 2;
   }
+
+  &.darkTheme {
+    background: #191c20;
+  }
 }
 
 .red {
@@ -146,6 +189,11 @@ $btnWidth: $calcWidth / 7;
 
 .orange {
   background: #f2a23b;
+
+  &.darkTheme {
+    background: #4e2d04;
+
+  }
 }
 
 .green {
@@ -154,6 +202,10 @@ $btnWidth: $calcWidth / 7;
 
 .lightGrey {
   background: #757677;
+
+  &.darkTheme {
+    background: #585858;
+  }
 }
 
 @media (max-width: 700px) {

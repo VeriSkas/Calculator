@@ -7,12 +7,23 @@
   <title>Calculator</title>
 </head>
 <body>
-  <div class="wrapper">
+  <div class="wrapper theme">
     <div class="wrapper__header">
       <h1 class="wrapper__header_title">Calculator</h1>
+      <div class="wrapper__header_switcher">
+        <div class="switcher" >
+          <span class="sun">
+            <box-icon name="sun" color="#f2a23b"></box-icon>
+          </span>
+          <span class="moon">
+            <box-icon name="moon" type="solid" color="#191c20"></box-icon>
+          </span>
+          <span class="switcher-tooltip">Change theme</span>
+        </div>
+      </div>
     </div>
     <div class="wrapper__content">
-      <div class="wrapper__content_calc">
+      <div class="wrapper__content_calc theme">
         <div class="wrapper__content_calc_logo">
           <div class="wrapper__content_calc_logo_circle red"></div>
           <div class="wrapper__content_calc_logo_circle orange"></div>
@@ -24,43 +35,43 @@
         </div>
         <div class="wrapper__content_calc_btns">
           <div class="wrapper__content_calc_btns_additional">
-            <div class="wrapper__content_calc_btns_additional_item item">m+</div>
-            <div class="wrapper__content_calc_btns_additional_item item">m-</div>
-            <div class="wrapper__content_calc_btns_additional_item item">mr</div>
-            <div class="wrapper__content_calc_btns_additional_item item">mc</div>
-            <div class="wrapper__content_calc_btns_additional_item item">10ᵡ</div>
-            <div class="wrapper__content_calc_btns_additional_item item">1/x</div>
-            <div class="wrapper__content_calc_btns_additional_item item">²√x</div>
-            <div class="wrapper__content_calc_btns_additional_item item">³√x</div>
-            <div class="wrapper__content_calc_btns_additional_item item">ᵞ√x</div>
-            <div class="wrapper__content_calc_btns_additional_item item">x²</div>
-            <div class="wrapper__content_calc_btns_additional_item item">x³</div>
-            <div class="wrapper__content_calc_btns_additional_item item">xᵞ</div>
-            <div class="wrapper__content_calc_btns_additional_item item">x!</div>
-            <div class="wrapper__content_calc_btns_additional_item item">%</div>
-            <div class="wrapper__content_calc_btns_additional_item item">+/-</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">m+</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">m-</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">mr</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">mc</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">10ᵡ</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">1/x</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">²√x</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">³√x</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">ᵞ√x</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">x²</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">x³</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">xᵞ</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">x!</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">%</div>
+            <div class="wrapper__content_calc_btns_additional_item item theme">+/-</div>
           </div>
           <div class="wrapper__content_calc_btns_numbers">
-            <div class="wrapper__content_calc_btns_numbers_number item">ms</div>
-            <div class="wrapper__content_calc_btns_numbers_number item">AC</div>
-            <div class="wrapper__content_calc_btns_numbers_number item number">.</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">7</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">8</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">9</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">4</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">5</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">6</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">1</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">2</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">3</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number">0</div>
-            <div class="wrapper__content_calc_btns_numbers_number item lightGrey bigWidth">=</div>
+            <div class="wrapper__content_calc_btns_numbers_number item theme">ms</div>
+            <div class="wrapper__content_calc_btns_numbers_number item theme">AC</div>
+            <div class="wrapper__content_calc_btns_numbers_number item number theme">.</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">7</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">8</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">9</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">4</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">5</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">6</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">1</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">2</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">3</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey number theme">0</div>
+            <div class="wrapper__content_calc_btns_numbers_number item lightGrey bigWidth theme">=</div>
           </div>
           <div class="wrapper__content_calc_btns_main">
-            <div class="wrapper__content_calc_btns_main_item item orange">&#247;</div>
-            <div class="wrapper__content_calc_btns_main_item item orange">&#215;</div>
-            <div class="wrapper__content_calc_btns_main_item item orange">-</div>
-            <div class="wrapper__content_calc_btns_main_item item orange bigHeight">+</div>
+            <div class="wrapper__content_calc_btns_main_item item orange theme">&#247;</div>
+            <div class="wrapper__content_calc_btns_main_item item orange theme">&#215;</div>
+            <div class="wrapper__content_calc_btns_main_item item orange theme">-</div>
+            <div class="wrapper__content_calc_btns_main_item item orange bigHeight theme">+</div>
           </div>
         </div>
       </div>
