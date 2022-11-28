@@ -168,6 +168,9 @@ $btnWidth: $calcWidth / 7;
 
   &:hover {
     opacity: 1;
+    font-size: calc(20px + 5 * (100vw / 1280));
+    font-weight: bold;
+    transition: all .2s ease-out;
   }
 
   &.bigWidth {
