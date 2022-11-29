@@ -6,8 +6,7 @@
     "node": true
   },
   "extends": [
-    "eslint:recommended",
-    "prettier"
+    "eslint:recommended"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -22,17 +21,8 @@
           "message": "Unexpected property on console object was called"
       }
     ],
-    "quotes": ["error", "single"]
+    "quotes": [2, "single", { "avoidEscape": true }]
   },
-  "overrides": [
-    {
-      "files": ["bin/*.js", "lib/*.js"],
-      "excludedFiles": "*.test.js",
-      "rules": {
-        "quotes": ["error", "double"]
-      }
-    }
-  ],
   "plugins": [
     "prettier"
   ]

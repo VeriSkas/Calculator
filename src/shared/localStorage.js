@@ -1,14 +1,14 @@
 export function localStorageHandler(func, key, body) {
   switch (func) {
-    case "setItem":
+    case 'setItem':
       localStorage.setItem(key, JSON.stringify(body));
       break;
-    case "getItem":
+    case 'getItem':
       return JSON.parse(localStorage.getItem(key));
-    case "deleteItem":
+    case 'deleteItem':
       localStorage.removeItem(key);
       break;
-    case "clearLS":
+    case 'clearLS':
       localStorage.clear();
       break;
     default:
