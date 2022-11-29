@@ -1,4 +1,17 @@
-import { factorial } from '../../shared/auxiliaryFormulas';
+import {
+  cube,
+  cubeRootOfX,
+  divide,
+  factorial,
+  minus,
+  multiple,
+  plus,
+  rootOfX,
+  square,
+  tenInX,
+  xInY,
+  yRootOfX,
+} from '../../shared/formulas/auxiliaryFormulas';
 import { ERROR_MESSAGES } from '../../shared/errorMessages';
 import { INFO_MESSAGES } from '../../shared/infoMessages';
 import {
@@ -78,7 +91,6 @@ export const calculatorHandler = () => {
       answerCalculateHandler();
       innerTextHandler(stateKeys.firstOperand);
     }
-    console.log(state);
   }
 
   function clearState() {
@@ -122,11 +134,11 @@ export const calculatorHandler = () => {
           : (state.firstOperand = state[changedPlace]);
         break;
       case btnsValue.mPlus:
-        state[changedPlace] = +state[changedPlace] + +state.firstOperand;
+        state[changedPlace] = plus(+state[changedPlace], +state.firstOperand);
         state.firstOperand = '';
         break;
       case btnsValue.mMinus:
-        state[changedPlace] = state[changedPlace] - state.firstOperand;
+        state[changedPlace] = minus(state[changedPlace], state.firstOperand);
         state.firstOperand = '';
         break;
       default:
@@ -147,53 +159,51 @@ export const calculatorHandler = () => {
 
     switch (operator) {
       case btnsValue.plus:
-        state.firstOperand = +firstOperand + +secondOperand;
+        state.firstOperand = plus(+firstOperand, +secondOperand);
         break;
       case btnsValue.minus:
-        state.firstOperand = +firstOperand - +secondOperand;
+        state.firstOperand = minus(+firstOperand, +secondOperand);
         break;
       case btnsValue.multiple:
-        state.firstOperand = +firstOperand * +secondOperand;
+        state.firstOperand = multiple(+firstOperand, +secondOperand);
         break;
       case btnsValue.divide:
         if (!secondOperand || secondOperand === btnsValue.zero) {
           createErrorNotificationHandler(ERROR_MESSAGES.divideByZero);
+          state.firstOperand = '';
+        } else {
+          state.firstOperand = divide(+firstOperand, +secondOperand);
         }
-
-        secondOperand && secondOperand !== btnsValue.zero
-          ? (state.firstOperand = +firstOperand / +secondOperand)
-          : (state.firstOperand = '');
 
         break;
       case btnsValue.xInY:
-        state.firstOperand = (+firstOperand) ** +secondOperand;
+        state.firstOperand = xInY(+firstOperand, +secondOperand);
         break;
       case btnsValue.yRootOfX:
-        state.firstOperand = (+firstOperand) ** (1 / +secondOperand);
+        state.firstOperand = yRootOfX(+firstOperand, +secondOperand);
         break;
       case btnsValue.square:
-        state.firstOperand = (+firstOperand) ** 2;
+        state.firstOperand = square(+firstOperand);
         break;
       case btnsValue.cube:
-        state.firstOperand = (+firstOperand) ** 3;
+        state.firstOperand = cube(+firstOperand);
         break;
       case btnsValue.rootOfX:
-        state.firstOperand = (+firstOperand) ** (1 / 2);
+        state.firstOperand = rootOfX(+firstOperand);
         break;
       case btnsValue.cubeRootOfX:
-        state.firstOperand = (+firstOperand) ** (1 / 3);
+        state.firstOperand = cubeRootOfX(+firstOperand);
         break;
       case btnsValue.tenInX:
-        state.firstOperand = 10 ** +firstOperand;
+        state.firstOperand = tenInX(+firstOperand);
         break;
       case btnsValue.oneDivideX:
         if (!firstOperand || firstOperand === btnsValue.zero) {
           createErrorNotificationHandler(ERROR_MESSAGES.divideByZero);
+          state.firstOperand = '';
+        } else {
+          state.firstOperand = divide(1, +firstOperand);
         }
-
-        firstOperand && firstOperand !== btnsValue.zero
-          ? (state.firstOperand = 1 / +firstOperand)
-          : (state.firstOperand = '');
 
         break;
       case btnsValue.xFactorial:
