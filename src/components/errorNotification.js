@@ -1,4 +1,4 @@
-export function createErrorNotificationHandler(errorMessage) {
+const createErrorNotificationHandler = (errorMessage) => {
   const wrapper = document.querySelector('.wrapper');
   const errorNotification = document.createElement('div');
 
@@ -9,5 +9,7 @@ export function createErrorNotificationHandler(errorMessage) {
   const timeout = setTimeout(() => {
     errorNotification.className = 'error_notification hide';
     clearTimeout(timeout);
-  }, 5000)
-}
+  }, 5000);
+};
+
+module.exports = { createErrorNotificationHandler };

@@ -1,4 +1,5 @@
 import {
+  changeSignOnMinusOrPlus,
   cube,
   cubeRootOfX,
   divide,
@@ -6,6 +7,7 @@ import {
   minus,
   multiple,
   plus,
+  procent,
   rootOfX,
   square,
   tenInX,
@@ -34,8 +36,8 @@ export const calculatorHandler = () => {
     operator: '',
     memory: '',
     memoryTurnOn: false,
-    screenLength: 25,
-    roundingValue: 4,
+    screenLength: 14,
+    roundingValue: 10,
   };
 
   btnsContainer.onclick = (event) => {
@@ -56,8 +58,6 @@ export const calculatorHandler = () => {
       case btnsValue.equal:
         answerCalculateHandler();
         innerTextHandler(stateKeys.firstOperand);
-        break;
-      default:
         break;
     }
 
@@ -93,33 +93,16 @@ export const calculatorHandler = () => {
     }
   }
 
-  function clearState() {
-    state.firstOperand = '';
-    state.secondOperand = '';
-    state.operator = '';
-    scren.innerText = 0;
-  }
-
-  function clearMemory() {
-    state.memory = '';
-    state.memoryTurnOn = false;
-    innerTextHandler(stateKeys.memoryTurnOn);
-  }
-
   function onChangeState(value, changedPlace) {
-    const stringValue = String(value);
-
-    if (state[changedPlace].length >= state.screenLength) return;
-
     if (value === btnsValue.dot && state[changedPlace].includes(btnsValue.dot))
       return;
 
     switch (value) {
       case btnsValue.plusMinus:
-        state[changedPlace] = String(0 - state[changedPlace]);
+        state[changedPlace] = changeSignOnMinusOrPlus(state[changedPlace]);
         break;
       case btnsValue.procent:
-        state[changedPlace] = String(state[changedPlace] / 100);
+        state[changedPlace] = procent(state[changedPlace], state.roundingValue);
         break;
       case btnsValue.msBtn:
         state[changedPlace] = true;
@@ -134,89 +117,144 @@ export const calculatorHandler = () => {
           : (state.firstOperand = state[changedPlace]);
         break;
       case btnsValue.mPlus:
-        state[changedPlace] = plus(+state[changedPlace], +state.firstOperand);
+        state[changedPlace] = plus(
+          +state[changedPlace],
+          +state.firstOperand,
+          state.roundingValue
+        );
         state.firstOperand = '';
         break;
       case btnsValue.mMinus:
-        state[changedPlace] = minus(state[changedPlace], state.firstOperand);
+        state[changedPlace] = minus(
+          state[changedPlace],
+          state.firstOperand,
+          state.roundingValue
+        );
         state.firstOperand = '';
         break;
       default:
-        state[changedPlace] === btnsValue.zero && value !== '.'
-          ? (state[changedPlace] = stringValue)
-          : (state[changedPlace] += stringValue);
+        String(state[changedPlace]) === btnsValue.zero && value !== '.'
+          ? (state[changedPlace] = String(value))
+          : (state[changedPlace] += String(value));
         break;
     }
 
+    if (state[changedPlace].length > state.screenLength) return;
+
     changedPlace === stateKeys.operator && state.operator
-      ? (state.operator = stringValue)
+      ? (state.operator = String(value))
       : null;
     innerTextHandler(changedPlace);
   }
 
   function answerCalculateHandler() {
-    const { firstOperand, secondOperand, operator } = state;
+    const { firstOperand, secondOperand, operator, roundingValue } = state;
 
     switch (operator) {
       case btnsValue.plus:
-        state.firstOperand = plus(+firstOperand, +secondOperand);
+        state.firstOperand = plus(+firstOperand, +secondOperand, roundingValue);
         break;
       case btnsValue.minus:
-        state.firstOperand = minus(+firstOperand, +secondOperand);
+        state.firstOperand = minus(
+          +firstOperand,
+          +secondOperand,
+          roundingValue
+        );
         break;
       case btnsValue.multiple:
-        state.firstOperand = multiple(+firstOperand, +secondOperand);
+        state.firstOperand = multiple(
+          +firstOperand,
+          +secondOperand,
+          roundingValue
+        );
         break;
       case btnsValue.divide:
         if (!secondOperand || secondOperand === btnsValue.zero) {
           createErrorNotificationHandler(ERROR_MESSAGES.divideByZero);
           state.firstOperand = '';
         } else {
-          state.firstOperand = divide(+firstOperand, +secondOperand);
+          state.firstOperand = divide(
+            +firstOperand,
+            +secondOperand,
+            roundingValue
+          );
         }
 
         break;
       case btnsValue.xInY:
-        state.firstOperand = xInY(+firstOperand, +secondOperand);
+        state.firstOperand = xInY(+firstOperand, +secondOperand, roundingValue);
         break;
       case btnsValue.yRootOfX:
-        state.firstOperand = yRootOfX(+firstOperand, +secondOperand);
+        if (secondOperand < 2) {
+          createErrorNotificationHandler(ERROR_MESSAGES.yRootLessOf2);
+          state.firstOperand = '';
+        } else if (firstOperand < 0 && secondOperand % 2 === 0) {
+          createErrorNotificationHandler(ERROR_MESSAGES.xRootLessOf0);
+          state.firstOperand = '';
+        } else {
+          state.firstOperand = yRootOfX(
+            +firstOperand,
+            +secondOperand,
+            roundingValue
+          );
+        }
+
         break;
       case btnsValue.square:
-        state.firstOperand = square(+firstOperand);
+        state.firstOperand = square(+firstOperand, roundingValue);
         break;
       case btnsValue.cube:
-        state.firstOperand = cube(+firstOperand);
+        state.firstOperand = cube(+firstOperand, roundingValue);
         break;
       case btnsValue.rootOfX:
-        state.firstOperand = rootOfX(+firstOperand);
+        state.firstOperand = rootOfX(+firstOperand, roundingValue);
         break;
       case btnsValue.cubeRootOfX:
-        state.firstOperand = cubeRootOfX(+firstOperand);
+        state.firstOperand = cubeRootOfX(+firstOperand, roundingValue);
         break;
       case btnsValue.tenInX:
-        state.firstOperand = tenInX(+firstOperand);
+        state.firstOperand = tenInX(+firstOperand, roundingValue);
         break;
       case btnsValue.oneDivideX:
         if (!firstOperand || firstOperand === btnsValue.zero) {
           createErrorNotificationHandler(ERROR_MESSAGES.divideByZero);
           state.firstOperand = '';
         } else {
-          state.firstOperand = divide(1, +firstOperand);
+          state.firstOperand = divide(1, +firstOperand, roundingValue);
         }
 
         break;
       case btnsValue.xFactorial:
-        state.firstOperand = factorial(+firstOperand);
+        if (
+          parseInt(String(firstOperand)) !== firstOperand ||
+          firstOperand < 0
+        ) {
+          createErrorNotificationHandler(
+            ERROR_MESSAGES.factorialFromInvalidNumber
+          );
+          state.firstOperand = '';
+        } else {
+          state.firstOperand = factorial(+firstOperand);
+        }
+
         break;
     }
 
     state.secondOperand = '';
     state.operator = '';
+  }
 
-    if (String(state.firstOperand).includes(btnsValue.dot)) {
-      state.firstOperand = (+state.firstOperand).toFixed(state.roundingValue);
-    }
+  function clearState() {
+    state.firstOperand = '';
+    state.secondOperand = '';
+    state.operator = '';
+    scren.innerText = 0;
+  }
+
+  function clearMemory() {
+    state.memory = '';
+    state.memoryTurnOn = false;
+    innerTextHandler(stateKeys.memoryTurnOn);
   }
 
   function innerTextHandler(place) {
