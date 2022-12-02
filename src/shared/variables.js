@@ -2,6 +2,8 @@ export const switcherItem = document.querySelector('.switcher');
 export const switcherSun = document.querySelector('.sun');
 export const switcherMoon = document.querySelector('.moon');
 export const itemsWithTheme = document.querySelectorAll('.theme');
+export const undoBtn = document.querySelector('.undoBtn');
+export const redoBtn = document.querySelector('.redoBtn');
 export const btnsContainer = document.querySelector(
   '.wrapper__content_calc_btns'
 );

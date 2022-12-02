@@ -1,5 +1,3 @@
-import 'boxicons';
-
 import './styles/style.scss';
 import { styleThemeUnload } from './components/styleSwitcher';
 import { calculatorHandler } from './components/calculator/calculator';
