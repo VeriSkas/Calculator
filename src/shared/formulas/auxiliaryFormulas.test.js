@@ -13,7 +13,7 @@ const {
   cubeRootOfX,
   tenInX,
   factorial,
-  procent,
+  percent,
   changeSignOnMinusOrPlus,
 } = require('./auxiliaryFormulas');
 
@@ -209,17 +209,17 @@ describe('Function factorial', () => {
   });
 });
 
-describe('Function procent', () => {
+describe('Function percent', () => {
   test(' 0 % equal 0', () => {
-    expect(procent(0)).toBe(0);
+    expect(percent(0)).toBe(0);
   });
 
   test(' -6 % equal -0.06', () => {
-    expect(procent(-6, 2)).toBe(-0.06);
+    expect(percent(-6, 2)).toBe(-0.06);
   });
 
   test(' 0.05 % equal 0.0005', () => {
-    expect(procent(0.05, 4)).toBe(0.0005);
+    expect(percent(0.05, 4)).toBe(0.0005);
   });
 });
 

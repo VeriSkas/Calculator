@@ -7,7 +7,7 @@ import {
   minus,
   multiple,
   plus,
-  procent,
+  percent,
   rootOfX,
   square,
   tenInX,
@@ -25,7 +25,7 @@ import {
   numbersAndSimpleOperatorsArr,
   operatorsWithoutSecondOperand,
   redoBtn,
-  scren,
+  screen,
   stateKeys,
   undoBtn,
 } from '../../shared/variables';
@@ -142,8 +142,8 @@ export const calculatorHandler = () => {
           state.currentState[changedPlace]
         );
         break;
-      case btnsValue.procent:
-        state.currentState[changedPlace] = procent(
+      case btnsValue.percent:
+        state.currentState[changedPlace] = percent(
           state.currentState[changedPlace],
           state.currentState.roundingValue
         );
@@ -311,7 +311,7 @@ export const calculatorHandler = () => {
     state.currentState.firstOperand = '';
     state.currentState.secondOperand = '';
     state.currentState.operator = '';
-    scren.innerText = 0;
+    screen.innerText = 0;
   }
 
   function clearMemory() {
@@ -324,16 +324,16 @@ export const calculatorHandler = () => {
     if (place === stateKeys.memoryTurnOn) {
       if (state.currentState[place]) {
         memory.innerText = INFO_MESSAGES.memoryText;
-        scren.innerText = state.currentState.memory || 0;
+        screen.innerText = state.currentState.memory || 0;
       } else {
         memory.innerText = '';
-        scren.innerText = 0;
+        screen.innerText = 0;
       }
 
       return;
     }
 
-    scren.innerText = state.currentState[place] || 0;
+    screen.innerText = state.currentState[place] || 0;
   }
 
   function innerTextInDependOnStateValue(currentState) {

@@ -1,11 +1,11 @@
 export const updateHistory = (state) => {
   const stateCopy = { ...state };
   let currentState = { ...state.currentState };
-  let previosState = state.history.at(-1);
+  let previousState = state.history.at(-1);
   let history = stateCopy.history;
   let position;
 
-  if (!similarObjectsCheck(currentState, previosState)) {
+  if (!similarObjectsCheck(currentState, previousState)) {
     history.push(currentState);
   }
 

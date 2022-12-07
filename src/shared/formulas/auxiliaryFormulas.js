@@ -112,7 +112,7 @@ const cubeRootOfX = (firstNumber, roundingValue) =>
 const tenInX = (firstNumber, roundingValue) =>
   xInY(10, +firstNumber, roundingValue);
 
-const procent = (num, roundingValue) => divide(num, 100, roundingValue);
+const percent = (num, roundingValue) => divide(num, 100, roundingValue);
 
 const changeSignOnMinusOrPlus = (num) => 0 - num;
 
@@ -135,6 +135,6 @@ module.exports = {
   xInY,
   divide,
   multiple,
-  procent,
+  percent,
   changeSignOnMinusOrPlus,
 };

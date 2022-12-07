@@ -7,7 +7,7 @@ export const redoBtn = document.querySelector('.redoBtn');
 export const btnsContainer = document.querySelector(
   '.wrapper__content_calc_btns'
 );
-export const scren = document.querySelector(
+export const screen = document.querySelector(
   '.wrapper__content_calc_screen_text'
 );
 export const memory = document.querySelector(
@@ -49,7 +49,7 @@ export const btnsValue = {
   mrBtn: 'mr',
   dot: '.',
   plusMinus: '+/-',
-  procent: '%',
+  percent: '%',
   plus: '+',
   minus: '-',
   divide: '÷',
