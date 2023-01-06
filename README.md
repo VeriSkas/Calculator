@@ -6,6 +6,12 @@ JS, Webpack, Eslint, Prettier, pre-commit hook, Jest
 
 https://chat.google.com/u/0/api/get_attachment_url?url_type=DOWNLOAD_URL&attachment_token=AAigNUSWSzTRbkurGGF0h98ElfT6LrfluAZLUkXTiYBdwsZb1ALWH88m%2FyTt2Z%2FXcUSROj0RJUHmcpFwfPKGbmVZaLYW8OcA6rifWqhrB0aILufKk5jQcHdjDKCBNZVwgqM6ZoFUvopWnWCKbBVDhRIW9uH8389DeUpCFOT9dPnp0fuLtaeWd8yu0RE%2FgcMyOCUvO0811NI3YF0OvfvJQ1jACBwJaLFVscP3qxu6Ej6%2BkHUQ5Aiu6NB3sXRm2z1SvoRlELOuITDxlmIfXxeAxXNTajAUr97oJsmFhTFYxtQnSy%2BZ4uQSpAcx5hWh%2Fs%2F%2FIQhuddPB6R8zgNti8B19n7ENSd7Sj1ByOIUxlCrTWI9LMvZ7KsJ5BlfncZbJlTh00ygHH1WEpaz8vD2NMweAhm4ICJRQmXMitt8OHAl08%2FgKmsq0oLU8Ibl8DWHTD6faohgvdVK3NAhVRd80XcgilO5C4otFhbUYboGouZE4XkU%2FB2634oeS%2FOLr1WnyCULizF4g7V13n6UIpd9Ed9HEl32dCmuEmXmFYHarJO93n9YsjWSaJ2VCUcrYdMIv6j8QrXag1U2vbuQIUSwr%2B3h%2BrFSBRaU%2FwuS7ZDxvhWhD3w%3D%3D&auto=true
 
+<hr/>
+<img src="./src/shared/img/readme/calc1.png" alt="calculator light img" height="450" />
+<hr/>
+<img src="./src/shared/img/readme/calc2.png" alt="calculator dark img" height="450" />
+<hr/>
+
 ## How to run the app
 
 Для того, чтобы запустить приложение, нужно:
